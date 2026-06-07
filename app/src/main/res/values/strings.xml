@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Slot Tracker</string>
+    <string name="service_desc">Отслеживает изменения баланса в Blackjackist и ведет статистику спинов автоматически.</string>
+</resources>
