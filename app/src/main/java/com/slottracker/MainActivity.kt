@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import java.text.NumberFormat
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -90,10 +92,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun refreshStats() {
         if (BlackjackistTrackerService.isRunning) {
-            tvServiceStatus.text = "✅ Сервис активен — отслеживает Blackjackist"
+            tvServiceStatus.text = "Сервис активен — отслеживает Blackjackist"
             tvServiceStatus.setTextColor(ContextCompat.getColor(this, R.color.positive))
         } else {
-            tvServiceStatus.text = "❌ Сервис не активен — открой настройки Accessibility и включи Slot Tracker"
+            tvServiceStatus.text = "Сервис не активен — открой настройки Accessibility и включи Slot Tracker"
             tvServiceStatus.setTextColor(ContextCompat.getColor(this, R.color.negative))
         }
 
@@ -106,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         tvStrikeRate.text = "Strike Rate: ${String.format("%.1f", stats.strikeRate)}%"
         tvAvgMult.text = "Средний x: ${String.format("%.2f", stats.avgMult)}"
         tvMaxDD.text = "Max DD: ${String.format("%.1f", stats.maxDrawdown)}%"
-        tvCurrentBalance.text = "Текущий баланс: ${stats.currentBalance.toLocaleString()}"
+        tvCurrentBalance.text = "Текущий баланс: ${NumberFormat.getInstance(Locale.getDefault()).format(stats.currentBalance)}"
 
         tvRecommendation.text = generateRecommendation(stats)
 
