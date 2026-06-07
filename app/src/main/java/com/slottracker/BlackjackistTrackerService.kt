@@ -120,9 +120,9 @@ class BlackjackistTrackerService : AccessibilityService() {
         val diff = newBalance - currentBalance
         val betSize = statsManager.betSize
 
-        val spinType: String
-        val bet: Int
-        val win: Int
+        var spinType: String
+        var bet: Int
+        var win: Int
 
         when {
             diff < -betSize * 0.8 -> {
